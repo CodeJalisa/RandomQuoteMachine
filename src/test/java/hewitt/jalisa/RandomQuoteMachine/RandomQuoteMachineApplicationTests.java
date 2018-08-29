@@ -1,4 +1,4 @@
-package com.example.RandomQuoteMachine;
+package hewitt.jalisa.RandomQuoteMachine;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
