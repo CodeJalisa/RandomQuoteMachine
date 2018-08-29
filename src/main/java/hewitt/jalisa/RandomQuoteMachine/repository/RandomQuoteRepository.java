@@ -1,5 +1,6 @@
 package hewitt.jalisa.RandomQuoteMachine.repository;
 
+import hewitt.jalisa.RandomQuoteMachine.dto.QuoteDTO;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
@@ -11,7 +12,9 @@ import org.springframework.web.client.RestTemplate;
 public class RandomQuoteRepository {
 
     public String getQuote(){
-
-        return "Is minimalism right for me?";
+        final String url = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+        RestTemplate restTemplate = new RestTemplate();
+        QuoteDTO[] result = restTemplate.getForObject(url, QuoteDTO[].class);
+        return result[0].getContent();
     }
 }
